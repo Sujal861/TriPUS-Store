@@ -1,4 +1,4 @@
-# v0TRIPUS6thhhhmain
+# TriPUS
 
 *Automatically synced with your [v0.app](https://v0.app) deployments*
 
