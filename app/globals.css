@@ -1,0 +1,320 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color palette to ColorHunt template (#333446, #7F8CAA, #B8CFCE, #EAEFEF) */
+  --background: #eaefef; /* Light blue-gray background */
+  --foreground: #333446; /* Dark blue-gray text */
+  --card: #ffffff; /* White cards */
+  --card-foreground: #333446; /* Dark blue-gray text on cards */
+  --popover: #ffffff; /* White popovers */
+  --popover-foreground: #333446; /* Dark blue-gray text on popovers */
+  --primary: #333446; /* Dark blue-gray primary color */
+  --primary-foreground: #eaefef; /* Light text on dark primary */
+  --secondary: #7f8caa; /* Medium blue-gray secondary */
+  --secondary-foreground: #eaefef; /* Light text on secondary */
+  --muted: #b8cfce; /* Light teal for muted areas */
+  --muted-foreground: #333446; /* Dark text on muted */
+  --accent: #7f8caa; /* Medium blue-gray accent */
+  --accent-foreground: #eaefef; /* Light text on accent */
+  --destructive: #d32f2f; /* Red for destructive actions */
+  --destructive-foreground: #ffffff; /* White text on red */
+  --border: #333446; /* Dark blue-gray borders */
+  --input: #ffffff; /* White input backgrounds */
+  --ring: rgba(51, 52, 70, 0.3); /* Dark blue-gray focus rings */
+  --chart-1: #333446; /* Dark blue-gray for charts */
+  --chart-2: #7f8caa; /* Medium blue-gray for charts */
+  --chart-3: #b8cfce; /* Light teal for charts */
+  --chart-4: #eaefef; /* Light blue-gray for charts */
+  --chart-5: #9ba8b3; /* Additional chart color */
+  --radius: 0.5rem; /* Softer corners */
+  --sidebar: #ffffff; /* White sidebar */
+  --sidebar-foreground: #333446; /* Dark sidebar text */
+  --sidebar-primary: #333446; /* Dark sidebar primary */
+  --sidebar-primary-foreground: #eaefef; /* Light text on dark */
+  --sidebar-accent: #7f8caa; /* Medium blue-gray sidebar accent */
+  --sidebar-accent-foreground: #eaefef; /* Light text on accent */
+  --sidebar-border: #333446; /* Dark sidebar borders */
+  --sidebar-ring: rgba(51, 52, 70, 0.3); /* Dark sidebar focus rings */
+}
+
+.dark {
+  /* Dark mode using the same color palette with inverted values */
+  --background: #333446; /* Dark blue-gray background in dark mode */
+  --foreground: #eaefef; /* Light text in dark mode */
+  --card: #404155; /* Slightly lighter dark cards */
+  --card-foreground: #eaefef; /* Light text on dark cards */
+  --popover: #333446; /* Dark popovers */
+  --popover-foreground: #eaefef; /* Light text on dark */
+  --primary: #eaefef; /* Light primary in dark mode */
+  --primary-foreground: #333446; /* Dark text on light */
+  --secondary: #7f8caa; /* Medium blue-gray secondary */
+  --secondary-foreground: #eaefef; /* Light text on secondary */
+  --muted: #404155; /* Dark muted areas */
+  --muted-foreground: #b8cfce; /* Light teal muted text */
+  --accent: #b8cfce; /* Light teal accent in dark mode */
+  --accent-foreground: #333446; /* Dark text on light accent */
+  --destructive: #f44336; /* Brighter red for dark mode */
+  --destructive-foreground: #ffffff; /* White text on red */
+  --border: #7f8caa; /* Medium blue-gray borders in dark mode */
+  --input: #404155; /* Dark input backgrounds */
+  --ring: rgba(184, 207, 206, 0.3); /* Light teal focus rings */
+  --chart-1: #eaefef; /* Light for charts */
+  --chart-2: #b8cfce; /* Light teal for charts */
+  --chart-3: #7f8caa; /* Medium blue-gray for charts */
+  --chart-4: #404155; /* Dark for charts */
+  --chart-5: #9ba8b3; /* Additional chart color */
+  --sidebar: #333446; /* Dark sidebar */
+  --sidebar-foreground: #eaefef; /* Light sidebar text */
+  --sidebar-primary: #eaefef; /* Light sidebar primary */
+  --sidebar-primary-foreground: #333446; /* Dark text on light */
+  --sidebar-accent: #7f8caa; /* Medium blue-gray sidebar accent */
+  --sidebar-accent-foreground: #eaefef; /* Light text on accent */
+  --sidebar-border: #7f8caa; /* Medium blue-gray sidebar borders */
+  --sidebar-ring: rgba(184, 207, 206, 0.3); /* Light teal sidebar focus rings */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Adding manga-style font weight and letter spacing */
+    font-weight: 600;
+    letter-spacing: 0.025em;
+  }
+}
+
+/* Updated manga-style animations for black and white theme */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(51, 52, 70, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(127, 140, 170, 0.6);
+  }
+}
+
+@keyframes manga-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes speed-lines {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.manga-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.manga-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.manga-shake {
+  animation: manga-shake 0.5s ease-in-out;
+}
+
+.manga-card {
+  /* Enhanced manga card styling with better positioning and palette colors */
+  background: #ffffff;
+  border: 3px solid #333446;
+  box-shadow: 6px 6px 0px #7f8caa;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.manga-card:hover {
+  transform: translateY(-2px) translateX(-2px);
+  box-shadow: 8px 8px 0px #7f8caa;
+}
+
+.manga-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #7f8caa, transparent);
+  animation: speed-lines 2s infinite;
+}
+
+.manga-button {
+  /* Manga-style button with bold black and white styling */
+  background: #333446;
+  color: #eaefef;
+  border: 3px solid #333446;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.manga-button:hover {
+  background: #7f8caa;
+  color: #eaefef;
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px #333446;
+}
+
+.manga-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(184, 207, 206, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.manga-button:hover::after {
+  left: 100%;
+}
+
+.manga-text-bubble {
+  /* Speech bubble effect for manga style */
+  background: #ffffff;
+  border: 2px solid #333446;
+  border-radius: 20px;
+  padding: 12px 16px;
+  position: relative;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #333446;
+}
+
+.manga-text-bubble::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #333446;
+}
+
+.manga-text-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 21px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #ffffff;
+}
+
+.manga-header {
+  /* Bold manga-style headers */
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 2px 2px 0px #b8cfce, -2px -2px 0px #b8cfce, 2px -2px 0px #b8cfce, -2px 2px 0px #b8cfce;
+  color: #333446;
+}
+
+.manga-panel {
+  /* Comic panel styling */
+  border: 3px solid #333446;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.manga-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 2px,
+    rgba(127, 140, 170, 0.05) 2px,
+    rgba(127, 140, 170, 0.05) 4px
+  );
+  pointer-events: none;
+}
