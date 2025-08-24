@@ -40,7 +40,7 @@ Experience TriPUS in action:
 
 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/tripus.git
+git clone https://github.com/Sujal861/TriPUS-Store.git
 cd tripus
 ```
 
